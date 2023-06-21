@@ -1,16 +1,4 @@
 FROM php:8.0-apache
-# 更改apt源为阿里云的镜像
-RUN set -eux; \
-  mv /etc/apt/sources.list /etc/apt/sources.list.bak; \
-  echo "deb http://mirrors.aliyun.com/debian/ buster main non-free contrib" >/etc/apt/sources.list; \
-  echo "deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib" >>/etc/apt/sources.list; \
-  echo "deb http://mirrors.aliyun.com/debian-security buster/updates main" >>/etc/apt/sources.list; \
-  echo "deb-src http://mirrors.aliyun.com/debian-security buster/updates main" >>/etc/apt/sources.list; \
-  echo "deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib" >>/etc/apt/sources.list; \
-  echo "deb-src http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib" >>/etc/apt/sources.list; \
-  echo "deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >>/etc/apt/sources.list; \
-  echo "deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" >>/etc/apt/sources.list;\
-  apt-get update 
 
 # 安装 mysqli 扩展
 RUN apt-get update && apt-get install -y --allow-downgrades\
