@@ -5,8 +5,8 @@ FROM composer:latest AS composer
 FROM php:8-apache
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
-COPY ./acg-faka/composer.json /var/www/html/composer.json
-COPY ./acg-faka/composer.lock /var/www/html/composer.lock
+COPY ./composer.json /var/www/html/composer.json
+COPY ./composer.lock /var/www/html/composer.lock
 
 RUN set -ex \
 # install dependencies
